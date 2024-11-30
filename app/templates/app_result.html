@@ -1,0 +1,191 @@
+<!DOCTYPE html> 
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 구성원 정보 출력</title>
+    <style>
+        body {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            justify-content: center;
+            align-items: center;
+            background: #ebecf0;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #333;
+            margin: 20px 0 30px 0;
+        }
+
+        .container-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0px 30px 0;
+            width: 100vw;
+
+        }
+
+        .container {
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babebc;
+            width: 250px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+
+
+        .student-block {
+            background-color: #D9DEE9;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .student-block p {
+            margin: 12px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .student-block p strong {
+            font-weight: bold;
+            color: #29487D;
+            margin-right: 5px;
+        }
+
+        button {
+            border-radius: 20px;
+            border: none;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 15px 45px;
+            margin: 8px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            box-shadow: -5px -5px 10px #fff, 5px 5px 8px #babebc;
+            color: #0a2151;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        footer span {
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .footer-links {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 10px;
+        }
+
+        .footer-links a {
+            color: #29487D;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 3px 8px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .footer-links .emergency-link {
+            color: #FF5733;
+        }
+
+        .footer-links .emergency-link:hover {
+            background-color: #ff57331a;
+        }
+
+        .footer-links .info-link {
+            color: #29487D;
+        }
+
+        .footer-links .info-link:hover {
+            background-color: #29487d1a;
+        }
+
+        .divider {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .github-link {
+            font-size: 12px;
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function showContactInfo() {
+            alert("긴급전화: 010-1234-5678");
+        }
+
+        function openContactPage() {
+            window.open("/contact", "contactPage", "width=600,height=400");
+        }
+
+        function openInputPage() {
+            window.open("/input", "InputPage", "width=800,height=600");
+        }
+    </script>
+</head>
+<body>
+    <h1>2024-2-OSSPrac Team 7조 OPEN 입니다.</h1>
+    <h2>다양한 인원이 모인 저희 팀을 소개합니다.</h2>
+
+    <div class="container-wrapper">
+        <!-- {% for name, role, student_number, student_email, major, git,photo_url in students %} -->
+        <div class="container">
+            <img src="{{ photo_url }}" alt="{{ name }}의 사진" style="width:100px; height:100px; border-radius:50%;">    
+            <div class="student-block">
+                <p><strong>이름:</strong> {{ name }}</p>
+                <p><strong>역할:</strong> {{ role }}</p>
+                <p><strong>학번:</strong> {{ student_number }}</p>
+                <p><strong>이메일:</strong> {{ student_email }}</p>
+                <p><strong>학과:</strong> {{ major }}</p>
+                <p><strong>Github:</strong> {{ git }}</p>
+                
+            </div>
+        </div>
+        <!-- {% endfor %} -->
+    </div>
+    <button onclick="openInputPage()">팀 구성원 정보 입력하기</button>
+    <footer>
+        <span class="footer-links">↗️
+            <a class="emergency-link" onclick="showContactInfo()">팀 Github 바로가기</a>
+            <span class="divider">|</span>📱
+            <a class="info-link" onclick="openContactPage()">팀 Github QR</a>
+        </span>
+    </footer>
+
+</body>
+</html>
