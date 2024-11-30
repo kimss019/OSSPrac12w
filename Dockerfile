@@ -13,4 +13,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # python ./main.py가 실행됨. 이때, main.py는 본인의 python 파일 이름으로 변경 가능
-CMD [ "python", "main.py" ]
+CMD [ "python", "team.py" ]
